@@ -2,11 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {Provider} from "react-redux"
+import {createStore} from "redux"
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore((state = [], action) => { 
+    let secondState = [...state];
+    console.log(secondState)
+    switch (action.type){
+        case "ADD_TEXT": 
+            return [...state,
+                    action.payload];
+        case "DELETE_TEXT":
+            state.splice(state.indexOf(action.payload),1);
+            return [...state];
+        // case "INCREMENT_COUNTER":
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+        default:
+            return state;
+    }
+});
+
+ReactDOM.render(
+    <Provider store = {store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
+
