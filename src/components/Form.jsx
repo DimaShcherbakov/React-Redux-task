@@ -6,8 +6,6 @@ class Form extends React.Component{
         if(this.textInput.value !==""){
             this.props.onAddText(this.textInput.value);
             this.textInput.value = "";
-        }else{
-            console.log("Enter the Text")
         }
     }
     render(){

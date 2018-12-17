@@ -5,8 +5,7 @@ import {connect} from "react-redux"
 let data_array = [];
 class Textfield extends React.Component{
     render(){
-        data_array = this.props.testStore;
-        console.log(data_array)
+        data_array = this.props.data;
         return (
             <div className = "col-md-6 text-left">
                 <h2 className="h2">List:</h2>
@@ -18,9 +17,7 @@ class Textfield extends React.Component{
     }
 }
 export default connect(
-    state =>  ({
-        testStore:state
-      }),
+    state =>  (state),
       dispatch => ({}
       )
     )(Textfield);

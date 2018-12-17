@@ -1,7 +1,6 @@
 import React from "react"
 import Form from "./Form.jsx"
 import Textfield from "./Textfield.jsx"
-import {connect} from "react-redux"
 
 class Task1 extends React.Component{
     render(){

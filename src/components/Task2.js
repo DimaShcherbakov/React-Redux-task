@@ -1,7 +1,7 @@
 import React from "react"
 import Counter from "./Counter.jsx"
 import Range from "./Range.jsx"
-
+import {connect} from "react-redux"
 class Task2 extends React.Component{
     render(){
         return(
@@ -9,11 +9,14 @@ class Task2 extends React.Component{
                 <h1  className = "text-left h1">Task #2</h1>
                 <div className = "row">
                     <Range/>
-                    <Counter/>
+                    <Counter value = {this.props.counter}/>
                 </div>
             </div> 
         );
     }
 }
 
-export default Task2;
+export default connect(
+    state =>({}),
+    dispatch =>({})
+)(Task2);

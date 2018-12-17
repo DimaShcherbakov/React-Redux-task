@@ -5,23 +5,32 @@ import App from './App';
 import {Provider} from "react-redux"
 import {createStore} from "redux"
 
-const store = createStore((state = [], action) => { 
-    let secondState = [...state];
-    console.log(secondState)
+const initialState = {
+    data:[],
+    counter: 0
+    }
+
+const store = createStore((state = initialState, action) => { 
     switch (action.type){
         case "ADD_TEXT": 
-            return [...state,
-                    action.payload];
+            return {
+                data:[...state.data, action.payload],
+            };
         case "DELETE_TEXT":
-            state.splice(state.indexOf(action.payload),1);
-            return [...state];
-        // case "INCREMENT_COUNTER":
-
+            state.data.splice(state.data.indexOf(action.payload),1);
+            return {
+                data:[...state.data]
+            };
+        case "COUNTER":
+        
+            return {
+                data:[...state.data],
+                counter:action.payload,
+            }
         default:
             return state;
     }
 });
-
 ReactDOM.render(
     <Provider store = {store}>
         <App />
