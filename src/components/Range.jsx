@@ -3,8 +3,8 @@ import {connect} from "react-redux"
 
 class Range extends React.Component{
     onChange(){
-        console.log(this.valueInput.value)
         this.props.onEstimation(this.valueInput.value)
+        localStorage.setItem("rangeValue",this.valueInput.value)
     }
     render(){
         return(

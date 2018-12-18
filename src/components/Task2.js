@@ -9,7 +9,7 @@ class Task2 extends React.Component{
                 <h1  className = "text-left h1">Task #2</h1>
                 <div className = "row">
                     <Range/>
-                    <Counter value = {this.props.counter}/>
+                    <Counter />
                 </div>
             </div> 
         );
@@ -17,6 +17,8 @@ class Task2 extends React.Component{
 }
 
 export default connect(
-    state =>({}),
+    state =>({
+        testStore:state
+    }),
     dispatch =>({})
 )(Task2);

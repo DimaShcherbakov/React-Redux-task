@@ -15,11 +15,13 @@ const store = createStore((state = initialState, action) => {
         case "ADD_TEXT": 
             return {
                 data:[...state.data, action.payload],
+                counter:state.counter
             };
         case "DELETE_TEXT":
             state.data.splice(state.data.indexOf(action.payload),1);
             return {
-                data:[...state.data]
+                data:[...state.data],
+                counter:state.counter
             };
         case "COUNTER":
         
