@@ -12,6 +12,7 @@ class Range extends React.Component{
                 <input type="range" 
                     max = "5000" min = "0" 
                     step = "100" className = "col-md-11"
+                    value = {localStorage.getItem('rangeValue')}
                     ref = {(value)=>{this.valueInput = value}}
                     onChange = {this.onChange.bind(this)}/>
                 <div className = "d-flex">

@@ -7,7 +7,7 @@ import {createStore} from "redux"
 
 const initialState = {
     data:[],
-    counter: 0
+    counter: localStorage.getItem('rangeValue')
     }
 
 const store = createStore((state = initialState, action) => { 
@@ -24,7 +24,6 @@ const store = createStore((state = initialState, action) => {
                 counter:state.counter
             };
         case "COUNTER":
-        
             return {
                 data:[...state.data],
                 counter:action.payload,
